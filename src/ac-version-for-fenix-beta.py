@@ -89,10 +89,10 @@ if __name__ == "__main__":
 
     verbose = os.getenv("VERBOSE") == "true"
 
-    organization = os.getenv("GITHUB_REPOSITORY_OWNER")
-    if not organization:
-        print("No GITHUB_REPOSITORY_OWNER set. Exiting.")
-        sys.exit(1)
+    organization = "mozilla-mobile"
+    # if not organization:
+    #     print("No GITHUB_REPOSITORY_OWNER set. Exiting.")
+    #     sys.exit(1)
 
     fenix_repo = github.get_repo(f"{organization}/fenix")
 
@@ -113,9 +113,9 @@ if __name__ == "__main__":
         print(f"[I] Latest Fenix version is {latest_fenix_version}")
 
     branch_name = f"releases_v{latest_fenix_version}.0.0"
-    if not is_fenix_beta_branch(fenix_repo, branch_name):
-        print(f"[E] Branch {organization}/fenix:{branch_name} is not in beta")
-        sys.exit(1)
+    # if not is_fenix_beta_branch(fenix_repo, branch_name):
+    #     print(f"[E] Branch {organization}/fenix:{branch_name} is not in beta")
+    #     sys.exit(1)
 
     if verbose:
         print(f"[I] Latest Fenix branch name is {branch_name}")
